@@ -90,6 +90,5 @@ resource "aws_instance" "this" {
   # it's a workaround, have no idea why it would fail the first time!
   sleep 120
   docker-compose restart
-  echo debug > debug
   EOF
 }

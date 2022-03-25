@@ -87,6 +87,9 @@ resource "aws_instance" "this" {
   sed -i 's/LICENSE_KEY=EXPIRED-LICENSE-KEY-TRIAL/LICENSE_KEY=${var.license_key}/g' docker.env
   echo COOKIE_INSECURE=true >> docker.env
   docker-compose up -d
+  # it's a workaround, have no idea why it would fail the first time!
+  sleep 120
   docker-compose restart
+  echo debug > debug
   EOF
 }

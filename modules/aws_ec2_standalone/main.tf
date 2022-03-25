@@ -83,9 +83,9 @@ resource "aws_instance" "this" {
   ./install.sh
 
   # Run services
-  docker-compose up -d
   echo ${var.license_key} > license_key
   sed -i 's/LICENSE_KEY=EXPIRED-LICENSE-KEY-TRIAL/LICENSE_KEY=${var.license_key}/g' docker.env
   echo COOKIE_INSECURE=true >> docker.env
+  docker-compose up -d
   EOF
 }

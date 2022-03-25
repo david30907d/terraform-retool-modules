@@ -72,7 +72,7 @@ resource "aws_instance" "this" {
   #!/bin/bash
 
   # Clone Retool repository
-  git clone https://github.com/tryretool/retool-onpremise.git
+  git clone https://github.com/david30907d/retool-onpremise.git
   cd retool-onpremise
 
   # Rewrite Dockerfile
@@ -84,5 +84,6 @@ resource "aws_instance" "this" {
 
   # Run services
   docker-compose up -d
+  echo ${var.license_key} > license_key
   EOF
 }

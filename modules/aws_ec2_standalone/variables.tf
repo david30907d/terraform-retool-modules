@@ -154,3 +154,7 @@ variable "egress_rules" {
   description = "Egress rules for EC2 security group"
 }
 
+variable "license_key" {
+  type        = string
+  description = "License key for Retool. Load them from env, which is TF_VAR_licence_key."
+}
